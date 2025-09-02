@@ -1,0 +1,240 @@
+        :root {
+            --primary: #2C54EB;
+            --primary-dark: #1A3FCA;
+            --secondary: #FF6B6B;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --gray: #A0AEC0;
+            --dark-blue: #1A365D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .hero-banner {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+        
+        .rotating-text-container {
+            height: 220px;
+            position: relative;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .rotating-text {
+            position: absolute;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 4rem;
+            line-height: 1.2;
+            color: var(--dark-blue);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .rotating-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .static-text {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(44, 84, 235, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(44, 84, 235, 0.4);
+        }
+        
+        .cta-button:hover:before {
+            left: 100%;
+        }
+        
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            z-index: 10;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .floating-element img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .element-1 {
+            width: 180px;
+            height: 180px;
+            top: 10%;
+            left: 5%;
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .element-2 {
+            width: 220px;
+            height: 150px;
+            top: 15%;
+            right: 8%;
+            animation: float 18s ease-in-out infinite 1s;
+        }
+        
+        .element-3 {
+            width: 160px;
+            height: 160px;
+            bottom: 20%;
+            left: 8%;
+            animation: float 16s ease-in-out infinite 0.5s;
+        }
+        
+        .element-4 {
+            width: 200px;
+            height: 140px;
+            bottom: 15%;
+            right: 10%;
+            animation: float 17s ease-in-out infinite 1.5s;
+        }
+        
+        .element-5 {
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            left: 15%;
+            animation: float 14s ease-in-out infinite 0.7s;
+        }
+        
+        .element-6 {
+            width: 140px;
+            height: 140px;
+            top: 45%;
+            right: 12%;
+            animation: float 13s ease-in-out infinite 0.9s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .rotating-text {
+                font-size: 3rem;
+            }
+            
+            .static-text {
+                font-size: 1.3rem;
+            }
+            
+            .floating-element {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .rotating-text {
+                font-size: 2.5rem;
+            }
+            
+            .static-text {
+                font-size: 1.1rem;
+            }
+            
+            .rotating-text-container {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .rotating-text {
+                font-size: 2rem;
+            }
+            
+            .static-text {
+                font-size: 1rem;
+            }
+            
+            .rotating-text-container {
+                height: 150px;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
